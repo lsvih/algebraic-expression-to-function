@@ -66,9 +66,10 @@ def create_function_expression(Tree):
         Tree.value = operators_name[Tree.value] +'('+ create_function_expression(Tree.left) +','+ create_function_expression(Tree.right) +')'
     return Tree.value
 
+if len(sys.argv) is 1:
+    print "Usage:f2f.py {your expression}"
+    print 'example:f2f.py "A+b-x*(12.13+51^y)^1.4121"'
+else:
+    print "input:"+sys.argv[1]
+    print "output:"+create_function_expression(expression_tree(sys.argv[1]))
 
-Exp = "A+b-x*(12.13+51^y)^1.4121"
-Exp = "1+(1-1)*5^3"
-a = BiTree()
-a = expression_tree(Exp)
-print create_function_expression(a)
